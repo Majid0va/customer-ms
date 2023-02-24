@@ -31,6 +31,7 @@ public class CustomersController {
         return ResponseEntity.ok(a);
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<CustomersDto> getByIdPruze(@PathVariable Long id) {
         log.info("afsafsaa");
