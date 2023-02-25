@@ -31,11 +31,20 @@ public class CustomersController {
         return ResponseEntity.ok(a);
     }
 
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomersDto> getByIdPruze(@PathVariable Long id) {
+        log.info("afsafsaa");
+        var a = customerService.findById(id);
+        log.info("a : {}",a);
+        return ResponseEntity.ok(a);
+    }
+
+
     @GetMapping
     public ResponseEntity<List<CustomersDto>> getAll() {
         return ResponseEntity.ok(customerService.findAll());
     }
-
     @PatchMapping("/{id}/price")
     public void balanceLogic(@PathVariable Long id, @RequestParam Long price) {
         customerService.decreaseBalance(id, price);
